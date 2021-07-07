@@ -35,7 +35,15 @@ Inside it place the following.
   swipl -g use_module(library(lsp_server)). -g lsp_server:main -t halt -- stdio
 #+END_SRC
 
+The emacs client will call the above command.
+
 ** Configure emacs
+Load the =prolog-ls.el= file.
+
+#+BEGIN_SRC emacs-lisp -n :async :results verbatim code
+  (load "/path/to/lsp-prolog/prolog-ls.el")
+#+END_SRC
+
 #+BEGIN_SRC emacs-lisp -n :async :results verbatim code
   (add-hook 'prolog-mode-hook #'lsp)
 #+END_SRC
