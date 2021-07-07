@@ -1,0 +1,36 @@
+* =prolog-lsp= client for emacs
+** Install the prolog lsp server
+*** Dependencies first
+#+BEGIN_SRC bash -n :i bash :async :results verbatim code
+  sudo apt-add-repository ppa:swi-prolog/stable
+  sudo apt-get update
+  sudo apt-get install swi-prolog
+#+END_SRC
+
+*** Install prolog lsp server from the SWI prolog interpreter
+Run =swipl= to start the interpreter.
+
+#+BEGIN_SRC bash -n :i bash :async :results verbatim code
+  swipl
+#+END_SRC
+
+Enter this command, with the package name you want.
+
+In this case, =lsp_server=.
+
+#+BEGIN_SRC text -n :async :results verbatim code
+  pack_install(lsp_server).
+#+END_SRC
+
+Press =Y=.
+
+If it asks you to create a drectory or something, press enter here.
+
+** Create a script called =prolog-lsp=
+Inside it place the following.
+
+#+BEGIN_SRC bash -n :i bash :async :results verbatim code
+  #!/bin/bash
+
+  swipl -g use_module(library(lsp_server)). -g lsp_server:main -t halt -- stdio
+#+END_SRC
