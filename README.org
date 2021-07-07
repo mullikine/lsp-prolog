@@ -47,3 +47,6 @@ Load the =prolog-ls.el= file.
 #+BEGIN_SRC emacs-lisp -n :async :results verbatim code
   (add-hook 'prolog-mode-hook #'lsp)
 #+END_SRC
+
+** Demo
+https://asciinema.org/a/638Ovhhcj54szacDiIWOJiglj
